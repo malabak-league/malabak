@@ -33,3 +33,35 @@
 
     </div>
 </header>
+<!-- شريط المباريات الحية (Live Ticker) -->
+<div class="bg-slate-900 border-b border-slate-800 py-2.5 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        
+        <!-- عنوان الشريط -->
+        <div class="flex items-center gap-2 shrink-0 pl-4 border-l border-slate-800">
+            <span class="flex h-3 w-3 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+            </span>
+            <span class="text-xs font-bold tracking-wider text-white uppercase">مباريات مباشرة</span>
+        </div>
+
+        <!-- محتوى الشريط المتحرك (أو المباريات الحالية) -->
+        <div class="flex items-center gap-8 overflow-x-auto scrollbar-none pr-4 text-xs font-medium text-slate-300 whitespace-nowrap">
+            <div class="flex items-center gap-2 bg-slate-950/60 px-3 py-1.5 rounded-lg border border-slate-800/80">
+                <span class="text-emerald-400 font-bold">ريال مدريد</span>
+                <span class="text-slate-500">vs</span>
+                <span class="text-emerald-400 font-bold">برشلونة</span>
+                <span class="bg-red-500/20 text-red-400 px-1.5 py-0.5 rounded text-[10px] font-bold animate-pulse">الشوط الثاني 75'</span>
+            </div>
+            <div class="flex items-center gap-2 bg-slate-950/60 px-3 py-1.5 rounded-lg border border-slate-800/80">
+                <span class="text-emerald-400 font-bold">ليفربول</span>
+                <span class="text-slate-500">vs</span>
+                <span class="text-emerald-400 font-bold">مانشستر سيتي</span>
+                <span class="bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded text-[10px] font-bold">مباشر</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
