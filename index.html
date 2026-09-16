@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة البث الرياضي النظيف - جميع البطولات والدوريات</title>
+    <!-- استدعاء تايليند سي دي إن -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+        body { font-family: 'Tajawal', sans-serif; }
+        /* إخفاء شريط التمرير للمظهر الجميل */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
+
+<div>
+    <!-- الهيدر العلوي -->
+    <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-emerald-500 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <span class="text-base font-black tracking-wide text-white">منصة البث النظيف</span>
+            </div>
+            <div class="flex items-center gap-2 bg-slate-950/60 px-3 py-1.5 rounded-xl border border-slate-800">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
+                <span class="text-xs font-bold text-red-400">مباشر آمن بدون إعلانات</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- شريط المباريات الحية المتحرك (Live Ticker) -->
+    <div class="bg-slate-900/40 border-b border-slate-800/60 py-2.5 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 flex items-center gap-4 text-xs">
+            <span class="bg-red-500/10 text-red-400 border border-red-500/20 px-2.5 py-1 rounded-lg font-bold shrink-0 animate-pulse">🔴 مباريات حية الآن</span>
+            <div class="whitespace-nowrap overflow-x-auto no-scrollbar flex items-center gap-6 text-slate-300">
+                <span class="flex items-center gap-2"><b>ريال مدريد</b> 2-1 <b>برشلونة</b> <span class="text-red-400 text-[10px]">د78'</span></span>
+                <span class="text-slate-600">|</span>
+                <span class="flex items-center gap-2"><b>بايرن ميونخ</b> 1-0 <b>دورتموند</b> <span class="text-red-400 text-[10px]">د65'</span></span>
+                <span class="text-slate-600">|</span>
+                <span class="flex items-center gap-2"><b>الهلال</b> 2-2 <b>التعاون</b> <span class="text-red-400 text-[10px]">د88'</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-6">
+        
+        <!-- شريط فلاتر البطولات والدوريات الأفقية -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2">
+            <button onclick="filterLeague('all')" class="league-btn px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold shrink-0 shadow-lg transition-all">الكل</button>
+            <button onclick="filterLeague('epl')" class="league-btn px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium shrink-0 border border-slate-800 transition-all">🏴󠁧󠁢󠁥󠁮󠁧󠁿 الدوري الإنجليزي</button>
+            <button onclick="filterLeague('esl')" class="league-btn px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium shrink-0 border border-slate-800 transition-all">🇪🇸 الدوري الإسباني</button>
+            <button onclick="filterLeague('ucl')" class="league-btn px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium shrink-0 border border-slate-800 transition-all">🇪🇺 دوري أبطال أوروبا</button>
+            <button onclick="filterLeague('seriea')" class="league-btn px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium shrink-0 border border-slate-800 transition-all">🇮🇹 الدوري الإيطالي</button>
+            <button onclick="filterLeague('bundesliga')" class="league-btn px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium shrink-0 border border-slate-800 transition-all">🇩🇪 الدوري الألماني</button>
+            <button onclick="filterLeague('ligue1')" class="league-btn px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium shrink-0 border border-slate-800 transition-all">🇫🇷 الدوري الفرنسي</button>
+            <button onclick="filterLeague('portugal')" class="league-btn px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium shrink-0 border border-slate-800 transition-all">🇵🇹 الدوري البرتغالي</button>
+            <button onclick="filterLeague('acl')" class="league-btn px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium shrink-0 border border-slate-800 transition-all">🏆 أبطال آسيا للنخبة</button>
+            <button onclick="filterLeague('libertadores')" class="league-btn px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium shrink-0 border border-slate-800 transition-all">🌎 كوبا ليبيرتادوريس</button>
+        </div>
+
+        <!-- أزرار الأيام -->
+        <div class="flex items-center justify-between bg-slate-900/60 p-1.5 rounded-2xl border border-slate-800 max-w-sm">
+            <button class="flex-1 py-2 bg-slate-800 text-slate-300 rounded-xl text-xs font-medium transition-all">أمس</button>
+            <button class="flex-1 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold shadow transition-all">اليوم</button>
+            <button class="flex-1 py-2 bg-slate-800 text-slate-300 rounded-xl text-xs font-medium transition-all">غداً</button>
+        </div>
+
+        <!-- جدول المباريات (الكروت) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="matches-container">
+            
+            <!-- مباراة 1: دوري أبطال أوروبا -->
+            <div class="match-card bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-3xl p-5 shadow-xl flex flex-col gap-4" data-league="ucl">
+                <div class="flex items-center justify-between text-xs border-b border-slate-800 pb-3">
+                    <span class="text-blue-400 font-bold bg-blue-500/10 px-2.5 py-1 rounded-full border border-blue-500/20">دوري أبطال أوروبا</span>
+                    <span class="text-red-400 font-bold animate-pulse">مباشر الآن</span>
+                </div>
+                <div class="grid grid-cols-3 items-center text-center">
+                    <span class="text-sm sm:text-base font-bold text-white">ريال مدريد</span>
+                    <div class="flex flex-col items-center">
+                        <span class="text-lg font-black text-emerald-400">2 - 1</span>
+                        <span class="text-[10px] text-slate-400">الشوط الثاني</span>
+                    </div>
+                    <span class="text-sm sm:text-base font-bold text-white">برشلونة</span>
+                </div>
+                <a href="player.html?match=ucl-1" class="w-full bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-500 hover:to-emerald-500 text-white py-2.5 rounded-xl text-xs font-bold text-center transition-all shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path></svg>
+                    شاهد البث المباشر
+                </a>
+            </div>
+
+            <!-- مباراة 2: الدوري الإنجليزي -->
+            <div class="match-card bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-3xl p-5 shadow-xl flex flex-col gap-4" data-league="epl">
+                <div class="flex items-center justify-between text-xs border-b border-slate-800 pb-3">
+                    <span class="text-purple-400 font-bold bg-purple-500/10 px-2.5 py-1 rounded-full border border-purple-500/20">الدوري الإنجليزي الممتاز</span>
+                    <span class="text-slate-400 font-bold">22:00</span>
+                </div>
+                <div class="grid grid-cols-3 items-center text-center">
+                    <span class="text-sm sm:text-base font-bold text-white">مانشستر سيتي</span>
+                    <div class="flex flex-col items-center">
+                        <span class="text-base font-black text-slate-400">VS</span>
+                        <span class="text-[10px] text-slate-500">لم تبدأ بعد</span>
+                    </div>
+                    <span class="text-sm sm:text-base font-bold text-white">أرسنال</span>
+                </div>
+                <a href="player.html?match=epl-1" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 py-2.5 rounded-xl text-xs font-bold text-center transition-all border border-slate-700/60 flex items-center justify-center gap-2">
+                    تفاصيل البث والمباراة
+                </a>
+            </div>
+
+            <!-- مباراة 3: أبطال آسيا للنخبة -->
+            <div class="match-card bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-3xl p-5 shadow-xl flex flex-col gap-4" data-league="acl">
+                <div class="flex items-center justify-between text-xs border-b border-slate-800 pb-3">
+                    <span class="text-amber-400 font-bold bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">دوري أبطال آسيا للنخبة</span>
+                    <span class="text-red-400 font-bold animate-pulse">مباشر الآن</span>
+                </div>
+                <div class="grid grid-cols-3 items-center text-center">
+                    <span class="text-sm sm:text-base font-bold text-white">الهلال السعودي</span>
+                    <div class="flex flex-col items-center">
+                        <span class="text-lg font-black text-emerald-400">2 - 2</span>
+                        <span class="text-[10px] text-slate-400">الشوط الثاني</span>
+                    </div>
+                    <span class="text-sm sm:text-base font-bold text-white">السد القطرى</span>
+                </div>
+                <a href="player.html?match=acl-1" class="w-full bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-500 hover:to-emerald-500 text-white py-2.5 rounded-xl text-xs font-bold text-center transition-all shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path></svg>
+                    شاهد البث المباشر
+                </a>
+            </div>
+
+            <!-- مباراة 4: كوبا ليبيرتادوريس -->
+            <div class="match-card bg-slate-900/60 backdrop-blur-md border border-slate-800/80 rounded-3xl p-5 shadow-xl flex flex-col gap-4" data-league="libertadores">
+                <div class="flex items-center justify-between text-xs border-b border-slate-800 pb-3">
+                    <span class="text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">كوبا ليبيرتادوريس</span>
+                    <span class="text-slate-400 font-bold">03:00</span>
+                </div>
+                <div class="grid grid-cols-3 items-center text-center">
+                    <span class="text-sm sm:text-base font-bold text-white">بوكا جونيورز</span>
+                    <div class="flex flex-col items-center">
+                        <span class="text-base font-black text-slate-400">VS</span>
+                        <span class="text-[10px] text-slate-500">لم تبدأ بعد</span>
+                    </div>
+                    <span class="text-sm sm:text-base font-bold text-white">ريفر بليت</span>
+                </div>
+                <a href="player.html?match=lib-1" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 py-2.5 rounded-xl text-xs font-bold text-center transition-all border border-slate-700/60 flex items-center justify-center gap-2">
+                    تفاصيل البث والمباراة
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+</div>
+
+    <!-- التذييل (Footer) -->
+    <footer class="bg-slate-900/60 border-t border-slate-800/80 py-6 mt-12 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 جميع الحقوق محفوظة - منصة البث الرياضي النظيف</p>
+            <div class="flex gap-4 text-slate-400">
+                <a href="index.html" class="hover:text-white transition-colors">الرئيسية</a>
+                <a href="#" class="hover:text-white transition-colors">سياسة الخصوصية</a>
+                <a href="#" class="hover:text-white transition-colors">اتصل بنا</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- سكريبت فلترة الدوريات البسيط -->
+    <script>
+        function filterLeague(leagueKey) {
+            // تحديث لون الأزرار
+            document.querySelectorAll('.league-btn').forEach(btn => {
+                btn.className = "league-btn px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium shrink-0 border border-slate-800 transition-all";
+            });
+            event.target.className = "league-btn px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold shrink-0 shadow-lg transition-all";
+
+            // إظهار وإخفاء الكروت حسب الدوري
+            const cards = document.querySelectorAll('.match-card');
+            cards.forEach(card => {
+                if (leagueKey === 'all' || card.getAttribute('data-league') === leagueKey) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
