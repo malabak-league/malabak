@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل البث المباشر - موسم 2026/2027</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+        body { font-family: 'Tajawal', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
+
+<div>
+    <!-- الهيدر -->
+    <header class="bg-slate-900/85 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 border border-slate-700/50">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    الرئيسية
+                </a>
+                <span class="text-xs text-slate-400 border-r border-slate-800 pr-3 hidden sm:inline">غرفة البث المباشر</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
+                <span class="text-xs font-bold text-red-400 uppercase tracking-wider">بث آمن 100% بدون إعلانات</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى -->
+    <main class="max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col gap-6">
+        
+        <!-- بطاقة تفاصيل المباراة (متغيرة حسب الرابط) -->
+        <div class="bg-gradient-to-b from-slate-900 to-slate-950 backdrop-blur-md border border-slate-800 rounded-3xl p-6 shadow-2xl flex flex-col gap-6">
+            
+            <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                    <span id="match-league" class="text-xs font-bold text-blue-400">الدوري الإنجليزي الممتاز</span>
+                </div>
+                <span id="match-channel" class="text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded-full font-medium border border-slate-700">قناة: beIN Sports</span>
+            </div>
+
+            <div class="grid grid-cols-3 items-center text-center">
+                <!-- الفريق الأول -->
+                <div class="flex flex-col items-center gap-2">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-slate-800/50 rounded-2xl border border-slate-700/60 flex items-center justify-center p-3 shadow-lg">
+                        <span id="team-1-logo" class="text-xs font-black text-white">LOGO</span>
+                    </div>
+                    <span id="team-1-name" class="text-sm sm:text-base font-bold text-white">الفريق الأول</span>
+                </div>
+
+                <!-- النتيجة أو التوقيت -->
+                <div class="flex flex-col items-center justify-center">
+                    <span id="match-status" class="text-xs bg-red-500/10 text-red-400 border border-red-500/20 px-3 py-1 rounded-full font-bold mb-2 animate-pulse">مباشر الآن</span>
+                    <span id="match-score" class="text-xl sm:text-2xl font-black text-emerald-400 tracking-wider">VS</span>
+                    <span id="match-date" class="text-[11px] text-slate-500 mt-1">موسم 2026/2027</span>
+                </div>
+
+                <!-- الفريق الثاني -->
+                <div class="flex flex-col items-center gap-2">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-slate-800/50 rounded-2xl border border-slate-700/60 flex items-center justify-center p-3 shadow-lg">
+                        <span id="team-2-logo" class="text-xs font-black text-white">LOGO</span>
+                    </div>
+                    <span id="team-2-name" class="text-sm sm:text-base font-bold text-white">الفريق الثاني</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 pt-3 border-t border-slate-800/85 text-xs text-slate-400 text-center">
+                <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                    🏟️ الملعب: <span id="match-stadium" class="text-slate-200 font-medium">ملعب المباراة</span>
+                </div>
+                <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
+                    🎙️ المعلق: <span id="match-commentator" class="text-slate-200 font-medium">غيرحدد</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- أزرار التنقل -->
+        <div class="grid grid-cols-3 gap-2 bg-slate-900/60 p-1.5 rounded-2xl border border-slate-800">
+            <button class="py-2.5 bg-blue-600 text-white rounded-xl text-xs font-bold shadow transition-all">البث المباشر</button>
+            <button class="py-2.5 bg-slate-800/50 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium transition-all">المواجهات السابقة</button>
+            <button class="py-2.5 bg-slate-800/50 hover:bg-slate-800 text-slate-300 rounded-xl text-xs font-medium transition-all">إحصائيات الفريقين</button>
+        </div>
+
+        <!-- المشغل -->
+        <div class="relative w-full aspect-video bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+            <iframe id="match-iframe" src="https://www.youtube.com/embed/jfKfPfyJRdk" class="w-full h-full border-0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+
+    </main>
+</div>
+
+    <!-- التذييل -->
+    <footer class="bg-slate-900/60 border-t border-slate-800/80 py-6 mt-12 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 جميع الحقوق محفوظة - منصة البث الرياضي النظيف</p>
+            <div class="flex gap-4 text-slate-400">
+                <a href="index.html" class="hover:text-white transition-colors">الرئيسية</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- سكريبت قراءة تفاصيل المباراة ديناميكياً -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const matchId = urlParams.get('match') || 'rm-inter';
+
+        // قاعدة بيانات المباريات لموسم 2026/2027
+        const db = {
+            'rm-inter': {
+                league: 'دوري أبطال أوروبا (مرحلة الدوري)',
+                channel: 'beIN Sports HD 1',
+                team1: 'ريال مدريد',
+                team2: 'إنتر ميلان',
+                score: '2 - 1',
+                status: 'نتيجة نهائية (FT)',
+                date: '16 سبتمبر 2026',
+                stadium: 'سانتياغو برنابيو',
+                commentator: 'حفيظ دراجي',
+                stream: 'https://www.youtube.com/embed/jfKfPfyJRdk'
+            },
+            'barca-fey': {
+                league: 'دوري أبطال أوروبا (مرحلة الدوري)',
+                channel: 'beIN Sports HD 2',
+                team1: 'برشلونة',
+                team2: 'فاينورد',
+                score: '5 - 1',
+                status: 'نتيجة نهائية (FT)',
+                date: '16 سبتمبر 2026',
+                stadium: 'لويس كومبانيس الأولمبي',
+                commentator: 'عصام الشوالي',
+                stream: 'https://www.youtube.com/embed/jfKfPfyJRdk'
+            },
+            'mci-sun': {
+                league: 'الدوري الإنجليزي الممتاز - الجولة 5',
+                channel: 'beIN Sports HD 1',
+                team1: 'مانشستر سيتي',
+                team2: 'سندرلاند',
+                score: 'VS',
+                status: 'قريباً - يبدأ الليلة',
+                date: '20 سبتمبر 2026',
+                stadium: 'الاتحاد',
+                commentator: 'خليل البلوشي',
+                stream: 'https://www.youtube.com/embed/jfKfPfyJRdk'
+            },
+            'ful-mun': {
+                league: 'الدوري الإنجليزي الممتاز - الجولة 5',
+                channel: 'beIN Sports HD 2',
+                team1: 'فولهام',
+                team2: 'مانشستر يونايتد',
+                score: 'VS',
+                status: 'قريباً - يبدأ الليلة',
+                date: '20 سبتمبر 2026',
+                stadium: 'كرافن كوتيج',
+                commentator: 'علي محمد علي',
+                stream: 'https://www.youtube.com/embed/jfKfPfyJRdk'
+            }
+        };
+
+        if (db[matchId]) {
+            const m = db[matchId];
+            document.getElementById('match-league').textContent = m.league;
+            document.getElementById('match-channel').textContent = 'قناة: ' + m.channel;
+            document.getElementById('team-1-name').textContent = m.team1;
+            document.getElementById('team-1-logo').textContent = m.team1.substring(0, 3);
+            document.getElementById('team-2-name').textContent = m.team2;
+            document.getElementById('team-2-logo').textContent = m.team2.substring(0, 3);
+            document.getElementById('match-score').textContent = m.score;
+            document.getElementById('match-status').textContent = m.status;
+            document.getElementById('match-date').textContent = m.date;
+            document.getElementById('match-stadium').textContent = m.stadium;
+            document.getElementById('match-commentator').textContent = m.commentator;
+            document.getElementById('match-iframe').src = m.stream;
+        }
+    </script>
+
+</body>
+</html>
